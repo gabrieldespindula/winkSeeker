@@ -1,0 +1,95 @@
+/*References: https://www.techspot.com/guides/287-default-router-ip-addresses/
+*
+*
+* For all Class A addresses the DNS has 10 bits just in case, as usually they 
+* are used in bigger network 1020 devices is a good start. As a consequence 
+* the address 10.0.1.1 is scanned when configured as 10.0.0.1
+*/
+
+const commonConfigsList = [
+	{
+		"mask":"255.255.255.0",
+		"gatewway":"192.168.0.1"
+	},{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.1.1"
+	},{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.10.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.50.1"
+  },{
+    "mask":"255.255.252.0",
+    "gatewway":"10.0.0.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.2.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.3.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.254.1"
+  },{
+    "mask":"255.255.252.0",
+    "gatewway":"10.1.0.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.11.1"
+  },{
+    "mask":"255.255.252.0",
+    "gatewway":"10.90.90.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.86.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.8.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.100.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.123.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.15.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.16.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.20.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.30.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.62.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.102.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.16.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.123.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.168.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.55.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.251.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"192.168.223.1"
+  },{
+    "mask":"255.255.255.0",
+    "gatewway":"200.200.200.1" //strange, I know
+  }
+];
