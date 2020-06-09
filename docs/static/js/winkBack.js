@@ -66,7 +66,7 @@ class WinkSeeker {
   * Description: This function calls fetch and abots the promise after 
   * some timeout. Timeout can be configured by fetchTimeout.
   */
-  fetchWithTimeout(ms, IP) {
+  fetchWithTimeout(ms, IP, fetchMode='cors') {
     let controller = new AbortController();
     let signal = controller.signal;
     return new Promise((resolve, reject) => {
@@ -74,7 +74,7 @@ class WinkSeeker {
         controller.abort();
         reject(new Error("timeout"));
       }, ms);
-      fetch(IP, {signal}).then(resolve, reject);
+      fetch(IP, {mode:fetchMode,signal}).then(resolve, reject);
     });
   }
 
@@ -138,6 +138,18 @@ class WinkSeeker {
       //Code something here if you want to call a spetial handler
     })
     .catch(error => {
+      if(error.toString() !== 'Error: timeout'){
+        //If couldn't fetch try with no-cors. A silence means there is something
+        fetch(IP, {mode:'no-cors'})
+        .catch(error => {
+          IP = ''
+        });
+        setTimeout(()=>{
+          if(IP !== ''){
+            this.#winkedBackIps.push(IP);
+          }
+        }, this.#fetchTimeout);
+      }
       this.#parallelWinks+=1;
       this.printToConsole(IP +': '+ error.toString());
     })
